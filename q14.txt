@@ -1,0 +1,32 @@
+Question 14
+
+Thinking of the language model as a Bayesian network provided several useful insights:
+
+1. Representation of dependencies:
+   The Bayesian network shows which words depend on which previous words. In the first-order model, each word depends only on the immediately preceding word:
+
+X1 -> X2 -> X3 -> X4
+
+This makes the independence assumptions of the model clear.
+
+2. Factorisation of the joint distribution:
+   The network provides a principled way to break the probability of an entire sentence into conditional probabilities. For example:
+
+P(X1, X2, X3, X4) = P(X1)P(X2 | X1)P(X3 | X2)P(X4 | X3)
+
+This makes it possible to calculate the probability of a complete sequence using smaller conditional distributions.
+
+3. Principled method for generation:
+   The Bayesian network gives a direct method for generating text. Starting from <START>, we sample the next word from its conditional probability distribution, then use that word as context to sample the following word. We continue until <END> is generated.
+
+4. Reasoning about independence assumptions:
+   The network makes the Markov assumption explicit. In a first-order model:
+
+P(Xt | X1, ..., Xt-1) = P(Xt | Xt-1)
+
+This shows exactly what information the model ignores.
+
+5. Understanding the effect of increasing context:
+   Comparing first-order and second-order networks shows that increasing context allows the model to use more information for prediction, but also increases the size of the conditional probability table and the amount of data needed to estimate it reliably.
+
+Overall, viewing the language model as a Bayesian network helped connect the mathematical probability model, its independence assumptions, its implementation, and its text-generation process.

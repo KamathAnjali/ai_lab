@@ -1,0 +1,14 @@
+The transition counts are stored in the transition_counts dictionary.
+
+It is created using:
+
+transition_counts = defaultdict(lambda: defaultdict(int))
+
+For each current token, it stores the count of how many times each possible next token follows it.
+
+For example:
+
+transition_counts["the"]["cat"] = 3
+transition_counts["the"]["dog"] = 3
+
+Thus, transition_counts[current_token][next_token] stores the number of times next_token follows current_token in the training data.

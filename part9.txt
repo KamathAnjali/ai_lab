@@ -1,0 +1,24 @@
+Using the first-order language model and random sampling, 20 sentences were generated:
+
+the cat sat on the mat
+the dog sat on the rug
+the cat ran to the park
+the dog ran to the park
+the dog sat on the mat
+the cat sat on the rug
+the dog sat on the mat
+the cat ran to the park
+the dog sat on the rug
+the cat sat on the mat
+the dog ran to the park
+the cat sat on the rug
+the dog sat on the mat
+the cat ran to the park
+the dog sat on the rug
+the cat sat on the mat
+the dog ran to the park
+the cat sat on the rug
+the dog sat on the mat
+the cat ran to the park
+
+Note: Because this model samples only transitions that appeared in the training data, the generated sentences will be combinations of the learned word transitions. With this particular dataset, the possible complete sentences are quite limited.

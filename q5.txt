@@ -1,0 +1,14 @@
+P(Xt | Xt-1) is computed in the section where the conditional probabilities are constructed:
+
+for current_token, next_tokens in transition_counts.items():
+total = sum(next_tokens.values())
+probabilities[current_token] = {}
+
+for next_token, count in next_tokens.items():
+    probabilities[current_token][next_token] = count / total
+
+The probability is calculated as:
+
+P(next_token | current_token) = count / total
+
+where count is the number of times the next token follows the current token, and total is the total number of transitions from the current token.

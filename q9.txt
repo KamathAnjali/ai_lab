@@ -1,0 +1,41 @@
+The next-word distributions for five different preceding words are:
+
+Context: "the"
+
+P(cat | the) = 0.500
+P(dog | the) = 0.500
+
+arg max w P(w | the) = cat or dog (tie)
+
+Context: "cat"
+
+P(sat | cat) = 0.667
+P(ran | cat) = 0.333
+
+arg max w P(w | cat) = sat
+
+Context: "dog"
+
+P(sat | dog) = 0.667
+P(ran | dog) = 0.333
+
+arg max w P(w | dog) = sat
+
+Context: "sat"
+
+P(on | sat) = 1.000
+
+arg max w P(w | sat) = on
+
+Context: "ran"
+
+P(to | ran) = 1.000
+
+arg max w P(w | ran) = to
+
+Therefore, the model predicts the most probable next word by selecting the word with the highest conditional probability given the preceding word.
+
+
+No, the most probable predictions are not always the same as the words that a person would personally expect. The model bases its predictions only on the transition probabilities learned from the training data, while humans use broader knowledge, context, meaning, grammar, and real-world experience.
+
+This shows that a probability model learns statistical patterns from data, whereas human linguistic expectations involve more than just word frequencies and immediate word-to-word relationships. A simple first-order model has limited context, so it may make predictions that are statistically likely but not necessarily the most natural or meaningful to a human.

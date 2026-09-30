@@ -1,0 +1,27 @@
+1. Graph structure:
+The first-order model has a chain structure where each word depends only on the previous word:
+
+X1 -> X2 -> X3 -> X4
+
+The second-order model allows each word to depend on the previous two words:
+
+X1 -> X3 <- X2
+X2 -> X4 <- X3
+
+Thus, the second-order model has two incoming connections for each prediction after the first two tokens.
+
+2. Conditional probability table:
+The first-order model stores probabilities of the form:
+
+P(next word | previous word)
+
+The second-order model stores probabilities of the form:
+
+P(next word | previous two words)
+
+Therefore, the second-order model's table is larger because it needs a separate distribution for each pair of previous words.
+
+Amount of context:
+The first-order model uses only one previous word as context. The second-order model uses the previous two words, so it has more context available when predicting the next word. This can allow it to capture patterns that depend on two-word sequences.
+Amount of data needed:
+The second-order model generally needs more training data because there are many more possible pairs of preceding words. With limited data, many pairs may never appear, resulting in zero-probability or poorly estimated transitions. The first-order model requires less data because it has fewer possible contexts.

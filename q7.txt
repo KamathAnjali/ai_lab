@@ -1,0 +1,10 @@
+If the program encounters a word for which no transition has been observed, that word will not be present in the probabilities dictionary.
+
+In predict_next(), the program checks for this case and returns None:
+
+if previous_token not in probabilities:
+return None
+
+In generate_sentence(), the program assumes that the current token has a known transition. Therefore, if an unknown token is encountered, the program would raise a KeyError when trying to access probabilities[current_token].
+
+Thus, the current implementation does not explicitly handle unknown words during sentence generation.

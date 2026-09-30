@@ -1,0 +1,8 @@
+The program uses both methods, depending on which function is being used.
+
+Predicting the next word:
+The predict_next() function always chooses the most probable next word using the max() function.
+Generating a sentence:
+The generate_sentence() function samples the next word from the probability distribution using random.choices().
+
+The difference is that always choosing the most probable word is deterministic, so the same previous word will always produce the same next word. Sampling is probabilistic, so different words can be generated according to their probabilities, making the generated sentences more varied and less predictable.

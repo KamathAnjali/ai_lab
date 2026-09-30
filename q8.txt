@@ -1,0 +1,9 @@
+If one of the totals is 0.87 instead of 1.0, it means that the conditional probability distribution for that word is not correctly normalized.
+
+This indicates that there is likely an error in the implementation, such as missing a transition, incorrect transition counts, or incorrectly calculating the probabilities.
+
+For a correct implementation:
+
+sum P(v | w) = 1
+
+Therefore, a total of 0.87 means that 0.13 of the probability mass is missing.

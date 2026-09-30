@@ -1,0 +1,11 @@
+The network makes a first-order Markov assumption. This means that each word depends only on the immediately preceding word and is conditionally independent of all earlier words given the previous word.
+
+In probability notation:
+
+P(X_t | X_1, X_2, ..., X_{t-1}) = P(X_t | X_{t-1})
+
+For example:
+
+P(X_3 | X_1, X_2) = P(X_3 | X_2)
+
+Thus, once X_(t-1) is known, the earlier words do not provide additional information about X_t.

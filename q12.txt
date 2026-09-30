@@ -1,0 +1,7 @@
+Increasing the amount of context can improve prediction because the model has more information about the words that came before the next word. A second-order model considers the previous two words, so it can distinguish between contexts that would look identical to a first-order model.
+
+However, increasing the context also makes the conditional probability table much larger. A first-order model estimates P(next word | one previous word), while a second-order model estimates P(next word | two previous words). Therefore, there are many more possible contexts and many more probabilities to estimate.
+
+With limited training data, many of these contexts may never appear in the training set. This results in zero-probability or poorly estimated probabilities.
+
+Thus, more context can improve prediction when enough data is available, but it also increases the amount of data required to estimate the conditional probability table reliably.

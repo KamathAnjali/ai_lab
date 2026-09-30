@@ -1,0 +1,28 @@
+The conditional probability distribution P(next word | current word) is constructed by counting how often each word follows the current word and dividing by the total number of words that follow it.
+
+the:
+P(cat | the) = 3/6 = 0.5
+P(dog | the) = 3/6 = 0.5
+
+cat:
+P(sat | cat) = 2/3 = 0.667
+P(ran | cat) = 1/3 = 0.333
+
+dog:
+P(sat | dog) = 2/3 = 0.667
+P(ran | dog) = 1/3 = 0.333
+
+sat:
+P(on | sat) = 4/4 = 1.0
+
+ran:
+P(to | ran) = 2/2 = 1.0
+
+Zero-probability transitions are transitions that never occur in the training data. For example:
+
+P(ran | the) = 0
+P(on | cat) = 0
+P(to | cat) = 0
+P(sat | ran) = 0
+
+In general, any word transition that does not appear in the training dataset has probability 0.

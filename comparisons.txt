@@ -1,0 +1,55 @@
+The first-order and second-order models were compared using the same training dataset.
+
+Number of distinct parameters:
+
+First-order model:
+
+It stores probabilities for observed pairs of consecutive words.
+There are 17 distinct observed transitions.
+Example: P(cat | the), P(dog | the), P(sat | cat), etc.
+
+Second-order model:
+
+It stores probabilities for observed triples of consecutive words.
+There are 18 distinct observed triples.
+Example: P(sat | the, cat) and P(ran | the, cat).
+
+The second-order model has more parameters because it distinguishes between different two-word contexts.
+
+Number of zero-probability contexts:
+
+The first-order model has 11 possible individual word contexts in the vocabulary, but only 10 of them have observed outgoing transitions. Any unobserved transition has probability zero.
+
+The second-order model has many more possible two-word contexts. With 11 vocabulary tokens, there are 11 x 11 = 121 possible pairs, but only 14 distinct pairs occur as contexts in the training data. Therefore, most possible two-word contexts are unseen and have no learned probability distribution.
+
+This illustrates that the second-order model is more data-hungry.
+
+Diversity of generated sentences:
+
+The second-order model can produce more context-sensitive combinations because it considers two previous words instead of one.
+
+For example, the model can distinguish:
+
+P(sat | the, cat)
+
+from:
+
+P(ran | the, cat)
+
+and also distinguish the context:
+
+P(sat | the, dog).
+
+The first-order model only considers the last word, so it cannot distinguish between different contexts that end in the same word.
+
+Qualitative coherence:
+
+The second-order model generally produces more coherent local sequences because it uses more context. For example, after "the cat", it can learn that "sat" and "ran" are possible continuations based specifically on that two-word context.
+
+The first-order model can produce repetitive or less coherent sequences because it only remembers one previous word. In this dataset, greedy generation can even get stuck in a cycle such as:
+
+the -> cat -> sat -> on -> the -> cat -> ...
+
+The second-order model has more information available and can therefore capture some two-word patterns that the first-order model cannot.
+
+Overall, the second-order model provides more context and can capture more specific language patterns, but it also requires more training data because the number of possible contexts grows rapidly.

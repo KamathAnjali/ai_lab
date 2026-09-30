@@ -1,0 +1,19 @@
+Approach B is preferable because it clearly specifies the probabilistic model and the intended behaviour instead of leaving the implementation open to interpretation.
+
+Specifying the intended behaviour:
+Approach B clearly states that the model should estimate P(Xt | Xt-1) using transition counts and generate text using sampling. This gives a precise definition of what the program is expected to do.
+Understanding the representation:
+The developer needs to understand how the model is represented, such as storing transition counts and conditional probability distributions. This makes it easier to implement the model correctly.
+Validating the generated implementation:
+Even if an implementation looks correct, it should be checked against the mathematical specification. For example, the transition probabilities should match the observed counts in the training data.
+Testing probabilistic invariants:
+Properties that must always hold can be tested automatically. For example, for every word w, the probabilities of all possible next words should sum to 1:
+
+sum P(v | w) = 1
+
+This helps detect implementation errors.
+
+Distinguishing implementation from model:
+The probabilistic model is the mathematical specification, while the Python code is only one possible implementation of that model. Keeping these separate makes it easier to verify whether the code actually implements the intended model rather than assuming that working code is automatically correct.
+
+Therefore, Approach B is preferable because it provides a precise specification that can be implemented, validated, and tested systematically.

@@ -1,0 +1,3 @@
+The sampling mode produces more variation than the greedy mode. Greedy generation always chooses the most probable next word, so it is deterministic and tends to produce the same sequence repeatedly. It can also get stuck in repetitive cycles.
+
+Sampling generation randomly chooses the next word according to the probability distribution. Therefore, less probable words can sometimes be selected, leading to different sequences and greater variation in the generated sentences.
