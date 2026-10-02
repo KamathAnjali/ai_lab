@@ -1,0 +1,26 @@
+Challenge: What if Python proposes Move(a,c)?
+
+Run:
+
+valid_move(a, c).
+
+Output:
+
+false.
+
+Explanation: The proposed action Move(a,c) is not supported by the warehouse knowledge base because there is no direct connection between a and c. Prolog rejects the proposed movement.
+
+Note that the two-step plan Move(a,b), Move(b,c) is supported, even though Move(a,c) is not a valid direct movement.
+
+
+1. Why do the first two queries succeed?
+
+The queries valid_move(a,b) and valid_move(b,c) succeed because the corresponding facts connected(a,b) and connected(b,c) are present in the knowledge base. The rule valid_move(X,Y) :- connected(X,Y) allows Prolog to infer that these movements are valid.
+
+2. Why does the third query fail?
+
+The query valid_move(a,c) fails because connected(a,c) is not present in the knowledge base. The rule checks direct connections and does not infer a connection through an intermediate location.
+
+3. What does the challenge demonstrate?
+
+The Python planner generates a candidate action, while Prolog independently verifies whether the action is supported by the warehouse facts. The action Move(a,c) is rejected because it is not directly supported.
